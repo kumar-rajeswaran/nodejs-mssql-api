@@ -11,12 +11,12 @@
 //     DeleteUser: `DELETE FROM TblUsers WHERE Id=?;`
 // }
 
-import { UserRequestDto } from "../types";
+import { IUserRequestDto } from "../types";
 
 
 export class DbQueries {
-    user: UserRequestDto;
-    constructor(userReq: UserRequestDto) {
+    user: IUserRequestDto;
+    constructor(userReq: IUserRequestDto) {
         this.user = userReq;
     }
     InsertUser = (): string => {

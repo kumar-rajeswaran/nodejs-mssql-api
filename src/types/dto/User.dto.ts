@@ -1,7 +1,7 @@
-import { CommonValues } from "../entities";
+import { ICommonEntityTypes } from "../entities";
 
 
-export interface UserDto extends CommonValues {
+export interface IUserDto extends ICommonEntityTypes {
     FirstName: string,
     LastName: string,
     Dob: Date,
@@ -9,7 +9,7 @@ export interface UserDto extends CommonValues {
     Email: string
 }
 
-export interface UserRequestDto extends UserDto {
+export interface IUserRequestDto extends IUserDto {
     Password: string,
     ConfirmPassword: string,
 }

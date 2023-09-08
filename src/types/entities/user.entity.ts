@@ -1,5 +1,5 @@
-import { UserDto } from "../dto/User.dto";
+import { IUserDto } from "../dto";
 
-export interface User extends UserDto {
+export interface IUser extends IUserDto {
     Password: string
 }

@@ -1,8 +1,8 @@
 import { Router } from "express";
 import { AuthController } from "../controllers";
-import { Routes } from "../types";
+import { IRoutes } from "../types";
 
-export class AuthRoute implements Routes {
+export class AuthRoute implements IRoutes {
     public path = '/auth/';
     public router = Router();
     public controller = new AuthController();

@@ -1,10 +1,10 @@
-// export interface CommonResponse {
+// export interface ICommonResponse {
 //     status: number,
 //     body: any,
 //     message: string
 // }
 
-export class CommonResponse {
+export class ICommonResponse {
     status: number;
     body: any;
     message: string;

@@ -4,12 +4,12 @@ import cors from "cors";
 import express from "express";
 import morgan from "morgan";
 import { SERVER_PORT } from "./configs";
-import { Routes } from "./types";
+import { IRoutes } from "./types";
 
 export class App {
   public app: express.Application;
   public port: string | number;
-  constructor(routes: Routes[]) {
+  constructor(routes: IRoutes[]) {
     this.app = express();
     this.port = SERVER_PORT || 3000;
     this.initializeMiddlewares();
@@ -32,7 +32,7 @@ export class App {
     this.app.use(bodyParser.json());
   }
 
-  private initializeRoutes(routes: Routes[]) {
+  private initializeRoutes(routes: IRoutes[]) {
     routes.forEach((route) => {
       this.app.use("/api/", route.router);
     });

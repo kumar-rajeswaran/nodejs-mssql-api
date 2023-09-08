@@ -1,8 +1,8 @@
 import { AuthService } from "../services";
 import { NextFunction, Request, Response } from 'express';
-import { CommonResponse, UserRequestDto } from "../models/dto";
+import { CommonResponse, UserRequestDto } from "../types";
 
-export default class AuthController {
+export class AuthController {
 
     private _authService = new AuthService();
     get=async(req: Request, res: Response, next: NextFunction)=>{

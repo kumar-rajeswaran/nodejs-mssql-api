@@ -1,9 +1,9 @@
 import { hash } from "bcrypt";
 import { pool, Request as sqlRequest } from "mssql";
 import { DbConfig, DbQueries } from "../configs";
-import { CommonResponse, UserRequestDto } from "../models/dto";
+import { CommonResponse, UserRequestDto } from "../types";
 
-export default class AuthService {
+export class AuthService {
 
     private _db = new DbConfig();
     signup = async (userRequest: UserRequestDto): Promise<CommonResponse> => {

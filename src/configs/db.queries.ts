@@ -11,7 +11,7 @@
 //     DeleteUser: `DELETE FROM TblUsers WHERE Id=?;`
 // }
 
-import { UserRequestDto } from "../models/dto";
+import { UserRequestDto } from "../types";
 
 
 export class DbQueries {

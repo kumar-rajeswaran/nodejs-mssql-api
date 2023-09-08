@@ -1,6 +1,6 @@
 import sql from 'mssql'
 import { DB_HOST, DB_NAME, DB_PWD, DB_USER } from '.';
-import { CommonResponse } from '../models/dto';
+import { CommonResponse } from '../types';
 
 
 export class DbConfig {

@@ -1,3 +1,3 @@
 export * from "./dto";
 export * from "./entities";
-export * from "./configs";
+export * from "./common";

@@ -3,7 +3,7 @@ import { AuthController } from "../controllers";
 import { IRoutes } from "../types";
 
 export class AuthRoute implements IRoutes {
-    public path = '/auth/';
+    public path = '/auth';
     public router = Router();
     public controller = new AuthController();
 
@@ -11,7 +11,7 @@ export class AuthRoute implements IRoutes {
         this.initialize();
     }
     initialize = () => {
-        this.router.get(`${this.path}get`, this.controller.get)
-        this.router.post(`${this.path}signup`, this.controller.signUp);
+        this.router.get(`${this.path}/users`, this.controller.users)
+        this.router.post(`${this.path}/signup`, this.controller.signUp);
     }
 }

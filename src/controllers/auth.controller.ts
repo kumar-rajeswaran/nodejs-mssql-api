@@ -1,21 +1,23 @@
 import { AuthService } from "../services";
-import { ICommonResponse, IUser, IUserRequestDto } from "../types";
-import { Body, Controller, Get, Post, Route } from "tsoa";
+import { NextFunction, Request, Response } from "express";
+import { IUserRequest } from "../types";
 
-@Route("api/auth")
-export class AuthController extends Controller {
-  @Get("/users")
-  public async users(): Promise<ICommonResponse<IUser[]>> {
-    let _authService = new AuthService();
-    let resData = await _authService.getAll();
-    this.setStatus(resData.status);
-    return resData;
+export class AuthController {
+  public async users(_req: Request, res: Response, next: NextFunction) {
+    try {
+      const userData = await AuthService.getInstance().getAll();
+      res.status(userData.status).json(userData);
+    } catch (error) {
+      next(error);
+    }
   }
-  @Post("/signup")
-  public async signUp(@Body() req: IUserRequestDto): Promise<ICommonResponse<{}>> {
-    let _authService = new AuthService();
-    let resData = await _authService.signup(req);
-    this.setStatus(resData.status);
-    return resData;
+  public async signUp(req: Request, res: Response, next: NextFunction) {
+    try {
+      let userData: IUserRequest = req.body;
+      let resData = await AuthService.getInstance().signup(userData);
+      res.status(resData.status).json(resData);
+    } catch (error) {
+      next(error);
+    }
   }
 }

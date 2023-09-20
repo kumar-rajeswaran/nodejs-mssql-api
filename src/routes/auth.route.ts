@@ -1,6 +1,7 @@
 import { Router } from "express";
 import { AuthController } from "../controllers";
 import { IRoutes } from "../types";
+import { body } from "express-validator";
 
 export class AuthRoute implements IRoutes {
   public path = "/auth";
@@ -11,7 +12,10 @@ export class AuthRoute implements IRoutes {
     this.initialize();
   }
   initialize = () => {
-    this.router.get(`${this.path}/users`, this.controller.users);
     this.router.post(`${this.path}/signup`, this.controller.signUp);
+    this.router.post(`${this.path}/signin`,  [
+      body('email').notEmpty().withMessage('Email is required'),
+      body('password').notEmpty().withMessage('Password is required'),
+    ], this.controller.signIn);
   };
 }

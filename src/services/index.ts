@@ -1,5 +1,2 @@
-import AuthService from "./auth.service";
-
-export {
-    AuthService
-}
+export * from "./auth.service";
+export * from "./user.service";
